@@ -9,5 +9,4 @@ import {TCPartsCountryBidProductCategory} from "./models/TCPartsCountryBidProduc
 })
 export class AppComponent{
   title = 'bid-process';
-  protected readonly TCPartsCountryBidProductCategory = TCPartsCountryBidProductCategory;
 }

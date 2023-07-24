@@ -1,14 +1,39 @@
-import {TCParts} from "./TCParts.model";
-import {Country} from "./Country.model";
-import {Bid} from "./Bid.model";
-import {ProductCategory} from "./ProductCategory.model";
+export interface TCPartsCountryBidProductCategory {
+  id?:              ID;
+  country?:         Country;
+  bid?:             Bid;
+  productCategory?: Country;
+  tcparts?:         Country;
+}
 
-export class TCPartsCountryBidProductCategory {
-  constructor(
-    private TCParts?: TCParts,
-    private Country?: Country,
-    private Bid?: Bid,
-    private ProductCategory?: ProductCategory
-  ) {
-  }
+export interface Bid {
+  id?:                       number;
+  name?:                     string;
+  customerName?:             string;
+  opportunityType?:          string;
+  opportunityMargin?:        number;
+  contractStart?:            string;
+  pricingModel?:             string;
+  scopeQuery?:               string;
+  bidAndTendersRead?:        string;
+  additionalContent?:        string;
+  attachements?:             string;
+  hibernateLazyInitializer?: HibernateLazyInitializer;
+  contractDuration?:         number;
+}
+
+export interface HibernateLazyInitializer {
+}
+
+export interface Country {
+  id?:                       number;
+  name?:                     string;
+  hibernateLazyInitializer?: HibernateLazyInitializer;
+}
+
+export interface ID {
+  idTCParts?:         number;
+  idCountry?:         number;
+  idBid?:             number;
+  idProductCategory?: number;
 }

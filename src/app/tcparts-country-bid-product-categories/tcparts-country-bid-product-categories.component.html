@@ -1,0 +1,9 @@
+<div *ngIf="tCPartsCountryBidProductCategories" class="flex justify-around flex-wrap bg-gray-100 p-6">
+  <div *ngFor="let tCPartsCountryBidProductCategory of tCPartsCountryBidProductCategories" class="w-80 mb-8 flex items-center flex-col rounded-xl border-gray-100 shadow-md bg-white border-1  ">
+    <h2 class="font-bold mt-5 text-xl">{{ tCPartsCountryBidProductCategory.bid.name}}</h2>
+    <h2 class="font-bold mt-5 text-xl">{{ tCPartsCountryBidProductCategory.country.name}}</h2>
+    <h2 class="font-bold mt-5 text-xl">{{ tCPartsCountryBidProductCategory.tcparts.name}}</h2>
+    <h2 class="font-bold mt-5 text-xl">{{ tCPartsCountryBidProductCategory.productCategory.name}}</h2>
+    <br>
+  </div>
+</div>

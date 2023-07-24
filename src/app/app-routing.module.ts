@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CountryComponent } from './country/country.component';
+import {
+  TCPartsCountryBidProductCategoriesComponent
+} from "./tcparts-country-bid-product-categories/tcparts-country-bid-product-categories.component";
 
 const routes: Routes = [
   { path: 'countries', component: CountryComponent },
+  { path: 'bids', component: TCPartsCountryBidProductCategoriesComponent },
 ];
 
 @NgModule({
