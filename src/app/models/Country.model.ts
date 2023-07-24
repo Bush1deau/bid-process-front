@@ -1,7 +1,4 @@
-export class Country {
-  constructor(
-    private id?: number,
-    private name?: string
-  ) {
-  }
+export interface Country {
+  id?: number,
+  name?: string
 }

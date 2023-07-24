@@ -1,0 +1,5 @@
+  <div *ngIf="CountryList" class="flex justify-around flex-wrap bg-gray-100 p-6">
+<div *ngFor="let country of CountryList" class="w-80 mb-8 flex items-center flex-col rounded-xl border-gray-100 shadow-md bg-white border-1  ">
+  <h2 class="font-bold mt-5 text-xl">{{ country.name }}</h2>
+</div>
+</div>

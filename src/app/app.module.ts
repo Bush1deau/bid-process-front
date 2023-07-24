@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TCPartsCountryBidProductCategoryComponent } from './bid/components/tcparts-country-bid-product-category/tcparts-country-bid-product-category.component';
-import { ViewTCPartsCountryBidProductCategoryComponent } from './bid/containers/view-tcparts-country-bid-product-category/view-tcparts-country-bid-product-category.component';
+import { CountryComponent } from './country/country.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    TCPartsCountryBidProductCategoryComponent,
-    ViewTCPartsCountryBidProductCategoryComponent
+    CountryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
