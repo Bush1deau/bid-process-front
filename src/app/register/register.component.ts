@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
 
     }
     registerUser(){
-      console.log("oui");
       this.firstName = (document.getElementById("firstName")as HTMLInputElement).value;
       this.lastName = (document.getElementById("lastName")as HTMLInputElement).value;
       this.email = (document.getElementById("email")as HTMLInputElement).value;
@@ -46,7 +45,9 @@ export class RegisterComponent implements OnInit {
           id : this.roleId,
         }
       }
+
       this.loading = true;
+
       this._utilisateurService.register(register).pipe(first()).subscribe(
           date => {
             this.loading = false;

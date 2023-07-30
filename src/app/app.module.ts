@@ -8,13 +8,16 @@ import {HttpClientModule} from "@angular/common/http";
 import { TCPartsCountryBidProductCategoriesComponent } from './tcparts-country-bid-product-categories/tcparts-country-bid-product-categories.component';
 import {RegisterComponent} from "./register/register.component";
 import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login/login.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CountryComponent,
     TCPartsCountryBidProductCategoriesComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
