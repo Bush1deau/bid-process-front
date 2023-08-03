@@ -16,17 +16,10 @@ export class UtilisateurService {
   }
 
   login(email: string, password: string) {
-    const params = {email, password};
-    return this._http.post<Utilisateur>(apiUrl + '/login', params);
+    console.log(email, password)
+    const credential = {email, password};
+    return this._http.post<Utilisateur>(`${apiUrl}/login`, credential);
   }
-
-
-
-
-  //login(email:any, password:any){
-  //  let params = new HttpParams().set('email', email).set('password', password)
-  //  return this._http.post<Utilisateur>(apiUrl+'/login', params , {'headers': headers})
-  //}
 
 
 

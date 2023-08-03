@@ -7,8 +7,11 @@ import { CountryComponent } from './country/country.component';
 import {HttpClientModule} from "@angular/common/http";
 import { TCPartsCountryBidProductCategoriesComponent } from './tcparts-country-bid-product-categories/tcparts-country-bid-product-categories.component';
 import {RegisterComponent} from "./register/register.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './login/login/login.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -17,14 +20,18 @@ import { LoginComponent } from './login/login/login.component';
     CountryComponent,
     TCPartsCountryBidProductCategoriesComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    NavbarComponent,
+    HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
