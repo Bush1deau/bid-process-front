@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UtilisateurService} from "../../services/utilisateur.service";
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   isMenuOpen: boolean = true
 
-  constructor() { }
+  constructor(public UtilisateurService : UtilisateurService) { }
 
   ngOnInit(): void {
     this.toggleMenu();
@@ -17,5 +18,9 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  logout() {
+    this.UtilisateurService.logout();
   }
 }

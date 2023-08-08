@@ -7,14 +7,16 @@ import {
 import {RegisterComponent} from "./register/register.component";
 import { LoginComponent } from './login/login/login.component';
 import {HomeComponent} from "./home/home.component";
+import {NavbarComponent} from "./layout/navbar/navbar.component";
+import {AuthguardService} from "./services/authguard.service";
 
 const routes: Routes = [
-  { path: 'countries', component: CountryComponent },
-  { path: 'bids', component: TCPartsCountryBidProductCategoriesComponent },
+  { path: 'bids', component: TCPartsCountryBidProductCategoriesComponent , canActivate: [AuthguardService]},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: 'home', component: HomeComponent , canActivate: [AuthguardService]},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'navbar', component: NavbarComponent }
 ];
 
 @NgModule({

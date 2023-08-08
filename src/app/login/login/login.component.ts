@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit{
     });
   }
   login() {
-    console.log(this.loginForm.value)
     this.loading = true;
     this._utilisateurService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
       (user: Utilisateur) => {
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit{
         } else {
           console.log("Échec de connexion");
           this.loading = false;
-          alert("nope");
         }
       },
       (error) => {
