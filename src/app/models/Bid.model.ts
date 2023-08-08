@@ -1,17 +1,17 @@
-export class Bid {
-  constructor(
-    private id?: number,
-  private name?: string,
-  private  customerName?:string,
-  private  opportunityType?:string,
-  private  opportunityMargin?:number,
-  private  contractStart?:Date,
-  private  ContractDuration?:number,
-  private  pricingModel?:string,
-  private  scopeQuery?:string,
-  private  bidAndTendersRead?:Date,
-  private  additionalContent?:string,
-  private  attachements?:File
-  ) {
-  }
+export interface Bid {
+  id?: number;
+  name: string;
+  customerName: string;
+  opportunityType: string;
+  opportunityMargin: number;
+  contractStart: string;
+  contractDuration: number;
+  pricingModel: string;
+  scopeQuery: string;
+  bidAndTendersRead: string;
+  additionalContent: string;
+  status: string;
+  country: { id: number };
+  tcParts: { id: number };
+  productCategory: { id: number };
 }

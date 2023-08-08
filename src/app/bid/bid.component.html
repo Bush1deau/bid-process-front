@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<form [formGroup]="bidsForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Nom</label>
+    <input type="text" id="name" formControlName="name" required>
+  </div>
+
+  <div>
+    <label for="customerName">Customer Name</label>
+    <input type="text" id="customerName" formControlName="customerName" required>
+  </div>
+
+  <div>
+    <label for="opportunityType">Opportunity Type</label>
+    <input type="text" id="opportunityType" formControlName="opportunityType" required>
+  </div>
+
+  <div>
+    <label for="opportunityMargin">Opportunity Margin</label>
+    <input type="number" id="opportunityMargin" formControlName="opportunityMargin" required>
+  </div>
+
+  <div>
+    <label for="contractStart">Contract start</label>
+    <input type="text" id="contractStart" formControlName="contractStart" required>
+  </div>
+
+  <div>
+    <label for="contractDuration">Contract duration</label>
+    <input type="number" id="contractDuration" formControlName="contractDuration" required>
+  </div>
+
+  <div>
+    <label for="pricingModel">Pricing Model</label>
+    <input type="text" id="pricingModel" formControlName="pricingModel" required>
+  </div>
+
+  <div>
+    <label for="scopeQuery">Scope of the query</label>
+    <input type="text" id="scopeQuery" formControlName="scopeQuery" required>
+  </div>
+
+  <div>
+    <label for="bidAndTendersRead">Bids and Tenders read date</label>
+    <input type="text" id="bidAndTendersRead" formControlName="bidAndTendersRead" required>
+  </div>
+
+  <div>
+    <label for="additionalContent">Additional content</label>
+    <input type="text" id="additionalContent" formControlName="additionalContent" required>
+  </div>
+
+
+  <div>
+    <label for="countryId">Pays</label>
+    <select id="countryId" formControlName="countryId" required>
+      <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="tcPartsId">TCParts</label>
+    <select id="tcPartsId" formControlName="tcPartsId" required>
+      <option *ngFor="let tcPart of tcParts" [value]="tcPart.id">{{ tcPart.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="productCategoryId">Catégorie de produit</label>
+    <select id="productCategoryId" formControlName="productCategoryId" required>
+      <option *ngFor="let productCategory of productCategories" [value]="productCategory.id">{{ productCategory.name }}</option>
+    </select>
+  </div>
+
+  <button type="submit">Créer Enchère</button>
+</form>
