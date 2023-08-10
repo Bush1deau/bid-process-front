@@ -1,0 +1,20 @@
+<div *ngFor="let bid of bids">
+  <h2>All Bids</h2>
+  <p>Nom : {{ bid.name }}</p>
+  <p>Client : {{ bid.customerName }}</p>
+  <p>Statut : {{ bid.status }}</p>
+  <button (click)="openStatusModal(bid)">Modifier le statut</button>
+</div>
+
+<!-- Formulaire/modal de modification du statut -->
+<div *ngIf="selectedBid">
+  <form #bidForm="ngForm" (ngSubmit)="updateBidStatus()">
+    <label for="newStatus">New Status</label>
+    <select id="newStatus" [(ngModel)]="newStatus" name="newStatus">
+      <option value="IN PROGESS">IN PROGRESS</option>
+      <option value="DONE">DONE</option>
+      <!-- Ajoutez d'autres options de statut ici -->
+    </select>
+    <button type="submit">Update</button>
+  </form>
+</div>

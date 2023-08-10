@@ -10,8 +10,8 @@ import {LocalStorageService} from "../services/local-storage.service";
 
 @Component({
   selector: 'app-bids-form',
-  templateUrl: './bid.component.html',
-  styleUrls: ['./bid.component.css'],
+  templateUrl: './createBid.component.html',
+  styleUrls: ['./createBid.component.css'],
 })
 export class BidsFormComponent implements OnInit {
   bidsForm!: FormGroup;

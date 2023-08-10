@@ -11,7 +11,9 @@ import { LoginComponent } from './login/login/login.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { BidsFormComponent} from './bid/bid.component';
+import { BidsFormComponent} from './createBid/createBid.component';
+import { BidbyuserComponent } from './bidbyuser/bidbyuser.component';
+import { BidsComponent } from './bids/bids.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { BidsFormComponent} from './bid/bid.component';
     NavbarComponent,
     HomeComponent,
       BidsFormComponent,
+      BidbyuserComponent,
+      BidsComponent,
   ],
     imports: [
         BrowserModule,
