@@ -31,5 +31,9 @@ export class BidsService {
     return this.http.put(url, updatedData);
   }
 
+  deleteBid(bidId: number | undefined): Observable<void> {
+    const url = `${this.apiUrl}/bid/delete/${bidId}`;
+    return this.http.delete<void>(url);
+  }
 
 }
