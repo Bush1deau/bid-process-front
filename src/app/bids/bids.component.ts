@@ -22,7 +22,10 @@ export class BidsComponent implements OnInit{
       (error) => {
         console.error('Erreur lors de la récupération des enchères', error);
       }
+
     );
+
+
   }
   openStatusModal(bid: any) {
     this.selectedBid = bid;
