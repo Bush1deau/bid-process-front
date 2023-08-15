@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BidsService} from "../services/bids.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {LocalStorageService} from "../services/local-storage.service";
 
 @Component({
   selector: 'app-bids',
@@ -12,7 +13,7 @@ export class BidsComponent implements OnInit{
   selectedBid: any = null;
   newStatus: string = '';
 
-  constructor (private bidsService: BidsService, private route: ActivatedRoute,) { }
+  constructor (private bidsService: BidsService, private router: Router,private localStorageService:LocalStorageService) { }
 
   ngOnInit() {
     this.bidsService.getAllBids().subscribe(
@@ -33,6 +34,7 @@ export class BidsComponent implements OnInit{
   }
   updateBidStatus() {
     if (this.selectedBid) {
+      this.router.navigate(['/home']);
       const oldBid = { ...this.selectedBid };
       this.bidsService.updateBidStatus(this.selectedBid.id, this.newStatus).subscribe(
         (updatedBid) => {
@@ -54,6 +56,7 @@ export class BidsComponent implements OnInit{
       this.bidsService.deleteBid(bid.id).subscribe(
         () => {
           console.log('Enchère supprimée avec succès.');
+          this.router.navigate(['/home']);
         },
         (error) => {
           console.error('Erreur lors de la suppression de l\'enchère :', error);
@@ -63,4 +66,6 @@ export class BidsComponent implements OnInit{
       console.error('ID d\'enchère non valide pour la suppression.');
     }
   }
+
+  protected readonly localStorage = localStorage;
 }

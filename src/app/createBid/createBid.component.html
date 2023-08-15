@@ -1,76 +1,92 @@
 <app-navbar></app-navbar>
-<form [formGroup]="bidsForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Nom</label>
-    <input type="text" id="name" formControlName="name" required>
+<div class="bg-zinc-200">
+<div class="max-w-md mx-auto">
+  <br>
+<form [formGroup]="bidsForm" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 border-4 border-[#9AC31C]">
+  <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Create a new bid !</h2>
+  <br>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name of the bid</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="name" formControlName="name" required>
   </div>
 
-  <div>
-    <label for="customerName">Customer Name</label>
-    <input type="text" id="customerName" formControlName="customerName" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="customerName">Customer Name</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="customerName" formControlName="customerName" required>
   </div>
 
-  <div>
-    <label for="opportunityType">Opportunity Type</label>
-    <input type="text" id="opportunityType" formControlName="opportunityType" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="opportunityType">Opportunity Type</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="opportunityType" formControlName="opportunityType" required>
   </div>
 
-  <div>
-    <label for="opportunityMargin">Opportunity Margin</label>
-    <input type="number" id="opportunityMargin" formControlName="opportunityMargin" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="opportunityMargin">Opportunity Margin</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" id="opportunityMargin" formControlName="opportunityMargin" required>
   </div>
 
-  <div>
-    <label for="contractStart">Contract start</label>
-    <input type="text" id="contractStart" formControlName="contractStart" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="contractStart">Contract start</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="contractStart" formControlName="contractStart" required>
   </div>
 
-  <div>
-    <label for="contractDuration">Contract duration</label>
-    <input type="number" id="contractDuration" formControlName="contractDuration" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="contractDuration">Contract duration</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" id="contractDuration" formControlName="contractDuration" required>
   </div>
 
-  <div>
-    <label for="pricingModel">Pricing Model</label>
-    <input type="text" id="pricingModel" formControlName="pricingModel" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="pricingModel">Pricing Model</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="pricingModel" formControlName="pricingModel" required>
   </div>
 
-  <div>
-    <label for="scopeQuery">Scope of the query</label>
-    <input type="text" id="scopeQuery" formControlName="scopeQuery" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="scopeQuery">Scope of the query</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="scopeQuery" formControlName="scopeQuery" required>
   </div>
 
-  <div>
-    <label for="bidAndTendersRead">Bids and Tenders read date</label>
-    <input type="text" id="bidAndTendersRead" formControlName="bidAndTendersRead" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="bidAndTendersRead">Bids and Tenders read date</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="bidAndTendersRead" formControlName="bidAndTendersRead" required>
   </div>
 
-  <div>
-    <label for="additionalContent">Additional content</label>
-    <input type="text" id="additionalContent" formControlName="additionalContent" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="additionalContent">Additional content</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="additionalContent" formControlName="additionalContent" required>
   </div>
 
 
-  <div>
-    <label for="countryId">Pays</label>
-    <select id="countryId" formControlName="countryId" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="countryId">Which country ?</label>
+    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="countryId" formControlName="countryId" required>
       <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
     </select>
   </div>
 
-  <div>
-    <label for="tcPartsId">TCParts</label>
-    <select id="tcPartsId" formControlName="tcPartsId" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="tcPartsId">Which technical and commercial part ?</label>
+    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tcPartsId" formControlName="tcPartsId" required>
       <option *ngFor="let tcPart of tcParts" [value]="tcPart.id">{{ tcPart.name }}</option>
     </select>
   </div>
 
-  <div>
-    <label for="productCategoryId">Catégorie de produit</label>
-    <select id="productCategoryId" formControlName="productCategoryId" required>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="productCategoryId">Which product category ?</label>
+    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="productCategoryId" formControlName="productCategoryId" required>
       <option *ngFor="let productCategory of productCategories" [value]="productCategory.id">{{ productCategory.name }}</option>
     </select>
   </div>
-
-  <button type="submit">Créer Enchère</button>
+  <br>
+  <div class="flex items-center">
+    <button
+      class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#9AC31C] hover:bg-[#a6d31f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      type="submit">
+      Submit bid
+    </button>
+  </div>
+  <br>
+  <a *ngIf="infoCreate == true" class="text-[#9AC31C] flex justify-center">Your request has been submitted !</a>
 </form>
+  <br>
+</div>
+</div>

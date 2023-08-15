@@ -1,28 +1,106 @@
-<div *ngFor="let bid of bids">
-  <h2>All Bids</h2>
-  <p>Nom : {{ bid.name }}</p>
-  <p>Client : {{ bid.customerName }}</p>
-  <p>Statut : {{ bid.status }}</p>
-  <button (click)="openStatusModal(bid)">Modifier le statut</button>
-  <button (click)="deleteBid(bid)" class="flex items-center space-x-2 bg-red-500 text-white p-3 rounded-full shadow-lg">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-    <span>Supprimer</span>
-  </button>
+<app-navbar></app-navbar>
+<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Here you can see all bids</h2>
+<div>
+  <div *ngIf="selectedBid" class="mb-4 flex justify-center pt-6">
+    <form #bidForm="ngForm" (ngSubmit)="updateBidStatus()">
+      <h3 class="mt-6 text-center text-xl font-extrabold text-gray-900">Modify the status</h3>
+      <select class="appearance-none border rounded w-full mt-5 mb-3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="newStatus" [(ngModel)]="newStatus" name="newStatus">
+        <option value="IN PROGRESS">IN PROGRESS</option>
+        <option value="DONE">DONE</option>
+      </select>
+      <button class="group relative w-full  py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#9AC31C] hover:bg-[#a6d31f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Update</button>
+    </form>
+  </div>
+  <div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >
+      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8" >
+        <div class="overflow-hidden">
+          <table class="min-w-full text-center text-sm font-light">
+            <thead class="border-b font-medium dark:border-neutral-500">
 
+            <tr>
+              <th scope="col" class="px-6 py-4">Id</th>
+              <th scope="col" class="px-6 py-4">Name</th>
+              <th scope="col" class="px-6 py-4">Status</th>
+              <th scope="col" class="px-6 py-4">Opportunity Type</th>
+              <th scope="col" class="px-6 py-4">Opportunity Margin</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let bid of bids">
+            <tr class="border-b border-blue-200 bg-blue-200 text-neutral-800" *ngIf="bid.status == 'IN PROGRESS'">
+              <td class="whitespace-nowrap px-6 py-4">{{bid.id}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityType}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityMargin}}</td>
+              <td>
+                <button (click)="openStatusModal(bid)">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                </button>
+              </td>
 
+              <td>
+                <button (click)="deleteBid(bid)" class="flex items-center space-x-2 bg-red-500 text-white p-3 rounded-full shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr class="border-b border-secondary-200 bg-secondary-100 text-neutral-800"*ngIf="bid.status == 'NEW'">
+              <td class="whitespace-nowrap px-6 py-4">{{bid.id}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityType}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityMargin}}</td>
+              <td>
+                <button (click)="openStatusModal(bid)">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                </button>
+              </td>
+              <td>
+                <button (click)="deleteBid(bid)" class="flex items-center space-x-2 bg-red-500 text-white p-3 rounded-full shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </td>
+
+            </tr>
+            <tr class="border-b border-green-200 bg-green-200 text-neutral-800" *ngIf="bid.status == 'DONE'">
+              <td class="whitespace-nowrap px-6 py-4">{{bid.id}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityType}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityMargin}}</td>
+              <td>
+                <button (click)="openStatusModal(bid)">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                </button>
+              </td>
+              <td>
+                <button (click)="deleteBid(bid)" class="flex items-center space-x-2 bg-red-500 text-white p-3 rounded-full shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-<!-- Formulaire de modification du statut -->
-<div *ngIf="selectedBid">
-  <form #bidForm="ngForm" (ngSubmit)="updateBidStatus()">
-    <label for="newStatus">New Status</label>
-    <select id="newStatus" [(ngModel)]="newStatus" name="newStatus">
-      <option value="IN PROGRESS">IN PROGRESS</option>
-      <option value="DONE">DONE</option>
-    </select>
-    <button type="submit">Update</button>
-  </form>
-</div>
+
+

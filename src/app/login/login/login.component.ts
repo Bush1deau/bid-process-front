@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit{
         if (user) {
           this.localStorageService.set('userId', JSON.stringify(user.id))
           this.localStorageService.set('userRoleId', JSON.stringify(user.role?.id))
+          this.localStorageService.set('userFirstName', JSON.stringify(user.firstName))
+          this.localStorageService.set('userLastName', JSON.stringify(user.lastName))
           console.log("Connecté avec succès", user);
           this.loading = false;
           this.router.navigate(['/home']);

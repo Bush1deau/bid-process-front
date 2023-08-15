@@ -15,7 +15,7 @@ import {LocalStorageService} from "../services/local-storage.service";
 })
 export class BidsFormComponent implements OnInit {
   bidsForm!: FormGroup;
-
+  infoCreate! : boolean;
   countries: any[] = [];
   tcParts: any[] = [];
   productCategories: any[] = [];
@@ -23,6 +23,7 @@ export class BidsFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private localStorageService:LocalStorageService, private bidsService: BidsService, private countryService : CountryService, private tcPartsService : TCPartsService, private productCategoryService : ProductCategoryService, private utilisateurService : UtilisateurService) {}
 
   ngOnInit() {
+    this.infoCreate = false;
     this.countryService.getAllCountries().subscribe(
       (countries) => {
         this.countries = countries;
@@ -70,6 +71,7 @@ export class BidsFormComponent implements OnInit {
 
   onSubmit() {
     if (this.bidsForm.valid) {
+
       const formData = this.bidsForm.value;
 
       const bid = {
@@ -92,6 +94,7 @@ export class BidsFormComponent implements OnInit {
 
       this.bidsService.createBid(bid).subscribe(
         (response) => {
+          this.infoCreate = true;
           console.log('Nouvelle offre créée avec succès !', response);
           this.bidsForm.reset();
         },

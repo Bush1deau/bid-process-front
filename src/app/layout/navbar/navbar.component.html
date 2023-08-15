@@ -4,10 +4,10 @@
     <img src="assets/Image/logo_lyreco2.png" class="mr-2 h-12 w-15">
 
     <div class="hidden sm:space-x-6 sm:flex sm:justify-between">
-      <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/bid']">Home</a>
+      <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/home']">Home</a>
       <a *ngIf="admin" class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/seeAllBids']">All Bids</a>
       <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/bidByUserId']">Your Bid(s)</a>
-      <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" (click)="logout()">Déconnexion</a>
+      <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" (click)="logout()">Logout</a>
     </div>
 
     <button *ngIf="!isMenuOpen"
@@ -24,8 +24,9 @@
   </div>
 
   <div *ngIf="isMenuOpen" class="flex flex-col bg-[#2D2E87] p-2 text-gray-300 sm:hidden">
-    <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/bid']">Home</a>
+    <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/home']">Home</a>
     <a *ngIf="admin" class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/seeAllBids']">All Bids</a>
-    <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" (click)="logout()">Déconnexion</a>
+    <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" [routerLink]="['/bidByUserId']">Your Bid(s)</a>
+    <a class="rounded-md px-3 py-1 font-medium hover:bg-[#797AAA] hover:text-white" (click)="logout()">Logout</a>
   </div>
 </nav>
