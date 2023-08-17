@@ -1,3 +1,5 @@
+import {Role} from "./Role.model";
+
 export interface Bid {
   id?: number;
   name: string;
@@ -14,4 +16,5 @@ export interface Bid {
   country: { id: number };
   tcParts: { id: number };
   productCategory: { id: number };
+  user: { id: number };
 }

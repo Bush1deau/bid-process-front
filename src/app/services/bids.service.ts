@@ -20,10 +20,15 @@ export class BidsService {
     return this.http.get<any[]>(this.apiUrl + '/bids');
   }
 
+
+
   getBidsByUserId(userId: number): Observable<any[]> {
     const url = `${this.apiUrl}/bid/user_id/${userId}`;
     return this.http.get<any[]>(url);
   }
+
+
+
 
   updateBidStatus(bidId: number, newStatus: string): Observable<any> {
     const url = `${this.apiUrl}/${bidId}/update-status`;

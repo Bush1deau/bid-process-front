@@ -8,23 +8,21 @@ import {LocalStorageService} from "../services/local-storage.service";
   styleUrls: ['./bidbyuser.component.css']
 })
 export class BidbyuserComponent implements OnInit{
-  bids: any[] = []; // Assurez-vous de remplacer "any" par le type approprié pour votre modèle d'enchère
-  userId?: number; // Le type peut être différent en fonction de la structure de votre ID utilisateur
+  bids: any[] = [];
+  userId?: number;
 
-  constructor(private bidsService: BidsService) {}
+  constructor(private bidsService: BidsService, private localStorageService: LocalStorageService) {}
 
   ngOnInit() {
-    // Récupérer l'ID de l'utilisateur depuis le localStorage
     this.userId = Number(localStorage.getItem('userId'));
+    console.log(this.userId)
 
-    // Appeler le service pour récupérer les objets bid en fonction de l'ID de l'utilisateur
     this.bidsService.getBidsByUserId(this.userId).subscribe(
       (bids) => {
         this.bids = bids;
       },
       (error) => {
         console.error('Erreur lors de la récupération des enchères', error);
-        // Gérer l'erreur si nécessaire
       }
     );
   }

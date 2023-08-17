@@ -21,18 +21,34 @@
             <tr>
               <th scope="col" class="px-6 py-4">Id</th>
               <th scope="col" class="px-6 py-4">Name</th>
-              <th scope="col" class="px-6 py-4">Status</th>
               <th scope="col" class="px-6 py-4">Opportunity Type</th>
               <th scope="col" class="px-6 py-4">Opportunity Margin</th>
+              <th scope="col" class="px-6 py-4">Contract start</th>
+              <th scope="col" class="px-6 py-4">Contract duration</th>
+              <th scope="col" class="px-6 py-4">Pricing model</th>
+              <th scope="col" class="px-6 py-4">Scope of the query</th>
+              <th scope="col" class="px-6 py-4">B&T read date</th>
+              <th scope="col" class="px-6 py-4">Country</th>
+              <th scope="col" class="px-6 py-4">Technical and Commercial part</th>
+              <th scope="col" class="px-6 py-4">Product Category</th>
+              <th scope="col" class="px-6 py-4">Status</th>
             </tr>
             </thead>
             <tbody *ngFor="let bid of bids">
             <tr class="border-b border-blue-200 bg-blue-200 text-neutral-800" *ngIf="bid.status == 'IN PROGRESS'">
               <td class="whitespace-nowrap px-6 py-4">{{bid.id}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.name}}</td>
-              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityType}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityMargin}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.contractStart}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.contractDuration}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.pricingModel}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.scopeQuery}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.bidAndTendersRead}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.country.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.tcParts.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.productCategory.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
               <td>
                 <button (click)="openStatusModal(bid)">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -52,9 +68,17 @@
             <tr class="border-b border-secondary-200 bg-secondary-100 text-neutral-800"*ngIf="bid.status == 'NEW'">
               <td class="whitespace-nowrap px-6 py-4">{{bid.id}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.name}}</td>
-              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityType}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityMargin}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.contractStart}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.contractDuration}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.pricingModel}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.scopeQuery}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.bidAndTendersRead}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.country.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.tcParts.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.productCategory.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
               <td>
                 <button (click)="openStatusModal(bid)">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -74,9 +98,17 @@
             <tr class="border-b border-green-200 bg-green-200 text-neutral-800" *ngIf="bid.status == 'DONE'">
               <td class="whitespace-nowrap px-6 py-4">{{bid.id}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.name}}</td>
-              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityType}}</td>
               <td class="whitespace-nowrap px-6 py-4">{{bid.opportunityMargin}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.contractStart}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.contractDuration}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.pricingModel}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.scopeQuery}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.bidAndTendersRead}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.country.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.tcParts.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.productCategory.name}}</td>
+              <td class="whitespace-nowrap px-6 py-4">{{bid.status}}</td>
               <td>
                 <button (click)="openStatusModal(bid)">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
